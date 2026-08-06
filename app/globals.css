@@ -1,26 +1,777 @@
 @import "tailwindcss";
 
+/* ==========================================================
+   WORD & VOICE DESIGN SYSTEM
+   Version 2.0
+   ========================================================== */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+  /* ========================================================
+     COLORS
+     ======================================================== */
+
+  --background: #07111f;
+  --background-secondary: #0d1728;
+  --background-tertiary: #101d31;
+
+  --surface: rgba(14,22,38,.72);
+  --surface-solid:#121d30;
+
+  --text-primary:#ffffff;
+  --text-secondary:#c9d3e1;
+  --text-muted:#8d9ab0;
+
+  --cyan:#27d6ff;
+  --cyan-light:#63e7ff;
+
+  --gold:#ffd978;
+  --gold-dark:#c89b3c;
+
+  --orange:#ff8a33;
+  --green:#26d67b;
+  --purple:#8b7dff;
+
+  --border:rgba(255,255,255,.08);
+
+  /* ========================================================
+     GRADIENTS
+     ======================================================== */
+
+  --gradient-cyan:
+    linear-gradient(
+      135deg,
+      #00c6ff 0%,
+      #0072ff 100%
+    );
+
+  --gradient-gold:
+    linear-gradient(
+      135deg,
+      #FFD978 0%,
+      #C89B3C 100%
+    );
+
+  --gradient-orange:
+    linear-gradient(
+      135deg,
+      #ff8a00 0%,
+      #ff4d4d 100%
+    );
+
+  --gradient-green:
+    linear-gradient(
+      135deg,
+      #00d084 0%,
+      #2dd4bf 100%
+    );
+
+  --gradient-purple:
+    linear-gradient(
+      135deg,
+      #7f5af0 0%,
+      #b983ff 100%
+    );
+
+  --hero-overlay:
+    linear-gradient(
+      90deg,
+      rgba(6,12,20,.93) 0%,
+      rgba(6,12,20,.78) 38%,
+      rgba(6,12,20,.22) 100%
+    );
+
+  /* ========================================================
+     TYPOGRAPHY
+     ======================================================== */
+
+  --font-heading: var(--font-playfair);
+
+  --font-body: var(--font-inter);
+
+  /* ========================================================
+     SHADOWS
+     ======================================================== */
+
+  --shadow-soft:
+    0 12px 40px rgba(0,0,0,.28);
+
+  --shadow-card:
+    0 20px 50px rgba(0,0,0,.45);
+
+  --shadow-glow:
+    0 0 50px rgba(39,214,255,.18);
+
+  /* ========================================================
+     RADIUS
+     ======================================================== */
+
+  --radius-sm:12px;
+  --radius-md:18px;
+  --radius-lg:26px;
+  --radius-xl:36px;
+
+  /* ========================================================
+     SPACING
+     ======================================================== */
+
+  --content-width:1280px;
+
+  --section-space:8rem;
+
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ==========================================================
+   RESET
+   ========================================================== */
+
+*,
+*::before,
+*::after{
+
+  box-sizing:border-box;
+
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+html{
+
+  scroll-behavior:smooth;
+
+}
+
+body{
+
+  margin:0;
+
+  padding:0;
+
+  overflow-x:hidden;
+
+  background:var(--background);
+
+  color:var(--text-primary);
+
+  font-family:var(--font-body);
+
+  text-rendering:optimizeLegibility;
+
+  -webkit-font-smoothing:antialiased;
+
+}
+
+img{
+
+  display:block;
+
+  max-width:100%;
+
+}
+
+button{
+
+  font:inherit;
+
+  cursor:pointer;
+
+}
+
+a{
+
+  color:inherit;
+
+  text-decoration:none;
+
+}
+
+p{
+
+  margin:0;
+
+  color:var(--text-secondary);
+
+  line-height:1.8;
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+
+  margin:0;
+
+  font-family:var(--font-heading);
+
+  font-weight:700;
+
+  line-height:1.08;
+
+}
+
+/* ==========================================================
+   FONT UTILITIES
+   ========================================================== */
+
+@layer utilities {
+
+  .font-heading {
+    font-family: var(--font-playfair);
   }
+
+  .font-body {
+    font-family: var(--font-inter);
+  }
+
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ==========================================================
+   LAYOUT
+   ========================================================== */
+
+.container{
+
+  width:min(92%,var(--content-width));
+
+  margin-inline:auto;
+
 }
+
+.section{
+
+  padding-block:var(--section-space);
+
+}
+/* ==========================================================
+   GLASSMORPHISM
+   ========================================================== */
+
+.glass{
+
+  background:var(--surface);
+
+  backdrop-filter:blur(22px);
+
+  -webkit-backdrop-filter:blur(22px);
+
+  border:1px solid var(--border);
+
+  box-shadow:var(--shadow-soft);
+
+}
+
+.glass-dark{
+
+  background:rgba(9,19,33,.82);
+
+  backdrop-filter:blur(24px);
+
+  -webkit-backdrop-filter:blur(24px);
+
+  border:1px solid rgba(255,255,255,.08);
+
+}
+
+.glass-light{
+
+  background:rgba(255,255,255,.06);
+
+  backdrop-filter:blur(18px);
+
+}
+
+/* ==========================================================
+   CARDS
+   ========================================================== */
+
+.card{
+
+  position:relative;
+
+  overflow:hidden;
+
+  border-radius:var(--radius-lg);
+
+  box-shadow:var(--shadow-card);
+
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease;
+
+}
+
+.card:hover{
+
+  transform:translateY(-8px);
+
+  box-shadow:
+    0 28px 60px rgba(0,0,0,.45);
+
+}
+
+.card::before{
+
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  border-radius:inherit;
+
+  border:1px solid rgba(255,255,255,.05);
+
+  pointer-events:none;
+
+}
+
+/* ==========================================================
+   BUTTONS
+   ========================================================== */
+
+.btn-primary{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:.75rem;
+
+  padding:15px 30px;
+
+  border:none;
+
+  border-radius:999px;
+
+  background:var(--gradient-cyan);
+
+  color:#fff;
+
+  font-weight:600;
+
+  transition:all .3s ease;
+
+}
+
+.btn-primary:hover{
+
+  transform:translateY(-3px);
+
+  box-shadow:
+
+    0 12px 28px rgba(39,214,255,.30);
+
+}
+
+.btn-secondary{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:.75rem;
+
+  padding:15px 30px;
+
+  border-radius:999px;
+
+  border:1px solid rgba(255,255,255,.16);
+
+  background:rgba(255,255,255,.04);
+
+  color:#fff;
+
+  transition:all .3s ease;
+
+}
+
+.btn-secondary:hover{
+
+  background:rgba(255,255,255,.08);
+
+  transform:translateY(-3px);
+
+}
+
+/* ==========================================================
+   HERO
+   ========================================================== */
+
+.hero-overlay{
+
+  position:absolute;
+
+  inset:0;
+
+  background:var(--hero-overlay);
+
+}
+
+.hero-glow{
+
+  position:absolute;
+
+  inset:auto;
+
+  border-radius:999px;
+
+  filter:blur(120px);
+
+  pointer-events:none;
+
+}
+
+.hero-divider{
+
+  width:90px;
+
+  height:3px;
+
+  border-radius:999px;
+
+  background:var(--gradient-gold);
+
+  margin:2rem 0;
+
+}
+
+/* ==========================================================
+   TEXT UTILITIES
+   ========================================================== */
+
+.text-gradient{
+
+  background:var(--gradient-cyan);
+
+  -webkit-background-clip:text;
+
+  -webkit-text-fill-color:transparent;
+
+  background-clip:text;
+
+}
+
+.text-gold{
+
+  background:var(--gradient-gold);
+
+  -webkit-background-clip:text;
+
+  -webkit-text-fill-color:transparent;
+
+  background-clip:text;
+
+}
+
+.text-muted{
+
+  color:var(--text-muted);
+
+}
+
+.text-secondary{
+
+  color:var(--text-secondary);
+
+}
+
+/* ==========================================================
+   SHADOW UTILITIES
+   ========================================================== */
+
+.glow{
+
+  box-shadow:var(--shadow-glow);
+
+}
+
+.shadow-card{
+
+  box-shadow:var(--shadow-card);
+
+}
+
+.rounded-xl{
+
+  border-radius:var(--radius-xl);
+
+}
+
+.rounded-lg{
+
+  border-radius:var(--radius-lg);
+
+}
+
+.rounded-md{
+
+  border-radius:var(--radius-md);
+
+}
+/* ==========================================================
+   ANIMATIONS
+   ========================================================== */
+
+@keyframes float {
+
+  0%{
+    transform:translateY(0px);
+  }
+
+  50%{
+    transform:translateY(-12px);
+  }
+
+  100%{
+    transform:translateY(0px);
+  }
+
+}
+
+@keyframes pulseGlow{
+
+  0%{
+    box-shadow:0 0 0 rgba(39,214,255,.15);
+  }
+
+  50%{
+    box-shadow:0 0 40px rgba(39,214,255,.35);
+  }
+
+  100%{
+    box-shadow:0 0 0 rgba(39,214,255,.15);
+  }
+
+}
+
+@keyframes fadeUp{
+
+  from{
+
+    opacity:0;
+
+    transform:translateY(40px);
+
+  }
+
+  to{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+  }
+
+}
+
+@keyframes rotateSlow{
+
+  from{
+
+    transform:rotate(0deg);
+
+  }
+
+  to{
+
+    transform:rotate(360deg);
+
+  }
+
+}
+
+.animate-float{
+
+  animation:float 6s ease-in-out infinite;
+
+}
+
+.animate-glow{
+
+  animation:pulseGlow 3s ease-in-out infinite;
+
+}
+
+.animate-fade-up{
+
+  animation:fadeUp .8s ease both;
+
+}
+
+.animate-rotate{
+
+  animation:rotateSlow 40s linear infinite;
+
+}
+
+/* ==========================================================
+   MEDIA
+   ========================================================== */
+
+video{
+
+  max-width:100%;
+
+}
+
+img{
+
+  user-select:none;
+
+  -webkit-user-drag:none;
+
+}
+
+/* ==========================================================
+   SCROLLBAR
+   ========================================================== */
+
+::-webkit-scrollbar{
+
+  width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+  background:#08111e;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+  background:#27405f;
+
+  border-radius:999px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+  background:#3b5f88;
+
+}
+
+/* ==========================================================
+   SELECTION
+   ========================================================== */
+
+::selection{
+
+  background:var(--cyan);
+
+  color:#fff;
+
+}
+
+/* ==========================================================
+   SPACING UTILITIES
+   ========================================================== */
+
+.mt-section{
+
+  margin-top:var(--section-space);
+
+}
+
+.mb-section{
+
+  margin-bottom:var(--section-space);
+
+}
+
+.py-section{
+
+  padding-block:var(--section-space);
+
+}
+
+/* ==========================================================
+   FLEX UTILITIES
+   ========================================================== */
+
+.flex-center{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+}
+
+.flex-between{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+}
+
+/* ==========================================================
+   TRANSITIONS
+   ========================================================== */
+
+.transition-default{
+
+  transition:all .3s ease;
+
+}
+
+.transition-slow{
+
+  transition:all .5s ease;
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+
+@media (max-width:1024px){
+
+  :root{
+
+    --section-space:6rem;
+
+  }
+
+}
+
+@media (max-width:768px){
+
+  :root{
+
+    --section-space:5rem;
+
+  }
+
+  .container{
+
+    width:min(94%,var(--content-width));
+
+  }
+
+}
+
+@media (max-width:640px){
+
+  .btn-primary,
+  .btn-secondary{
+
+    width:100%;
+
+  }
+
+}
+
+/* ==========================================================
+   END OF FILE
+   ========================================================== */
