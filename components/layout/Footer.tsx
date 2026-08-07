@@ -335,7 +335,7 @@ export default function Footer() {
 
               <p className="text-lg font-medium text-white">
 
-                contact@wordandvoice.com
+                contact@wordandvoice.in
 
               </p>
 

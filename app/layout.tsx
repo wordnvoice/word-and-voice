@@ -15,7 +15,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://wordandvoice.com"),
+  metadataBase: new URL("https://wordandvoice.in"),
 
   title: {
     default: "Word & Voice",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     description:
       "Music. Books. Projects. Christ-centered creativity.",
 
-    url: "https://wordandvoice.com",
+    url: "https://wordandvoice.in",
 
     siteName: "Word & Voice",
 

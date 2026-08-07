@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
-
 import { features } from "@/data/features";
 
 export default function FeatureCards() {
@@ -87,6 +86,7 @@ export default function FeatureCards() {
                   src={item.image}
                   alt={item.title}
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"              
                   className="object-cover transition duration-700 group-hover:scale-110"
                 />
 
