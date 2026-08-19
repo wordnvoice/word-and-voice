@@ -7,17 +7,18 @@ import MusicHero from "@/components/sections/MusicHero";
 import LatestReleaseCard from "@/components/cards/LatestReleaseCard";
 import PlaylistSection from "@/components/sections/PlaylistSection";
 
-export default async function MusicPage() {
-  const response = await fetch(
-    "http://localhost:3000/api/youtube/playlists",
-    {
-      next: {
-        revalidate: 3600,
-      },
-    }
-  );
+import { playlists } from "@/data/playlists";
+import { getPlaylistVideos } from "@/lib/api/youtube";
 
-  const playlists = await response.json();
+export default async function MusicPage() {
+  const playlistData = await Promise.all(
+    playlists.map(async (playlist) => ({
+      title: playlist.title,
+      id: playlist.id,
+      url: `https://www.youtube.com/playlist?list=${playlist.id}`,
+      videos: await getPlaylistVideos(playlist.id),
+    }))
+  );
 
   return (
     <>
@@ -52,51 +53,47 @@ export default async function MusicPage() {
 
           </div>
 
-          <div className="container relative z-10 py-24">
+          <div className="container relative z-10 py-10">
 
-            {/* Latest Release */}
+            {/* ========================================= */}
+            {/* LATEST RELEASE */}
+            {/* ========================================= */}
 
-            <section className="mb-32">
+            <section className="mb-16">
 
-              <div className="mb-12 text-center">
+              <div className="mb-6 text-center">
 
-                <p className="text-sm uppercase tracking-[0.45em] text-cyan-400">
-                  Featured
-                </p>
-
-                <h2 className="mt-3 text-5xl font-bold text-white">
+                <h2 className="text-5xl font-bold text-white">
                   Latest Release
                 </h2>
 
-                <p className="mx-auto mt-5 max-w-2xl text-lg text-slate-400">
-                  Listen to the newest worship song from Word & Voice.
-                </p>
-
               </div>
 
-              <LatestReleaseCard />
+              {/* Latest Release Card */}
+              <div className="flex justify-center">
+                <LatestReleaseCard />
+              </div>
 
             </section>
 
-            {/* Playlists */}
+            {/* ========================================= */}
+            {/* PLAYLISTS */}
+            {/* ========================================= */}
 
             <section>
 
-              <div className="mb-16 text-center">
+              <div className="mb-8 text-center">
 
-                <p className="text-sm uppercase tracking-[0.45em] text-cyan-400">
-                  Music Library
-                </p>
-
-                <h2 className="mt-3 text-5xl font-bold text-white">
+                <h2 className="text-5xl font-bold text-white">
                   Playlists
                 </h2>
 
               </div>
 
-              <div className="space-y-28">
+              {/* Playlist Sections */}
+              <div className="space-y-12">
 
-                {playlists.map((playlist: any) => (
+                {playlistData.map((playlist) => (
                   <PlaylistSection
                     key={playlist.id}
                     playlist={playlist}

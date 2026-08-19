@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -95,11 +96,17 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+
   return (
     <html lang="en">
       <body className={`${inter.variable} ${playfair.variable}`}>
         {children}
       </body>
+
+      {gaMeasurementId && (
+        <GoogleAnalytics gaId={gaMeasurementId} />
+      )}
     </html>
   );
 }
