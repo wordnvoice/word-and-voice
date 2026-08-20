@@ -152,7 +152,7 @@ export async function getPlaylistVideos(
     });
 
     throw new Error(
-      `Failed to fetch playlist. Status: ${playlistResponse.status}. Playlist ID: ${playlistId}`
+      `YouTube playlist API error | Status: ${playlistResponse.status} | Playlist ID: ${playlistId} | Response: ${errorText}`
     );
   }
 
