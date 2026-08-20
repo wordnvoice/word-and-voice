@@ -14,7 +14,7 @@ export const navigation: NavigationItem[] = [
   {
     id: 2,
     label: "Books",
-    href: "#books",
+    href: "/books",
   },
 
   {
