@@ -20,24 +20,24 @@ export const navigation: NavigationItem[] = [
   {
     id: 3,
     label: "Projects",
-    href: "#projects",
+    href: "/projects",
   },
 
   {
     id: 4,
     label: "About",
-    href: "#about",
+    href: "/about",
   },
 
   {
     id: 5,
     label: "Downloads",
-    href: "#downloads",
+    href: "/downloads",
   },
 
   {
     id: 6,
     label: "Contact",
-    href: "#contact",
+    href: "/contact",
   },
 ];
