@@ -68,6 +68,13 @@ export const metadata: Metadata = {
     locale: "en_US",
 
     type: "website",
+
+    images: [
+      {
+        url: "/logos/logo.png",
+        alt: "Word & Voice",
+        },
+        ],
   },
 
   twitter: {
