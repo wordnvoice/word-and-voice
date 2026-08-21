@@ -36,16 +36,16 @@ export default function Navbar() {
       >
         <div className="container">
           <div
-            className={`glass flex items-center justify-between rounded-full border border-white/10 px-12 transition-all duration-300 ${ 
+            className={`glass flex items-center justify-between rounded-full border border-white/10 px-12 transition-all duration-300 ${
               scrolled ? "py-4" : "py-3"
             }`}
           >
             {/* Logo */}
 
             <Link
-  href="/"
-  className="relative z-20 flex items-center justify-center -my-8"
->
+              href="/"
+              className="relative z-20 flex items-center justify-center -my-8"
+            >
               <Image
                 src="/logos/logo.png"
                 alt="Word & Voice"
@@ -55,54 +55,65 @@ export default function Navbar() {
                 className="drop-shadow-2xl select-none"
                 draggable={false}
               />
-
-              
             </Link>
 
             {/* Desktop Navigation */}
 
             <nav className="hidden lg:flex flex-1 justify-center items-center gap-10">
               {navigation.map((item) => (
-                <a
+                <Link
                   key={item.id}
                   href={item.href}
                   className="text-sm font-medium text-slate-300 transition hover:text-cyan-400"
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
             </nav>
 
             {/* Right Side */}
 
             <div className="hidden lg:flex items-center gap-5">
+              {/* YouTube */}
               <a
-                href="#"
+                href="https://www.youtube.com/@WordnVoice"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="YouTube"
                 className="text-slate-300 transition hover:text-red-500"
               >
                 <FaYoutube size={20} />
               </a>
 
+              {/* Spotify */}
               <a
-                href="#"
+                href="https://open.spotify.com/artist/0INYdICAWs39j0QzZaC72F?si=evHQkalGSDyRd9UsIYjd_A&nd=1&dlsi=b61be1b47d8f4bbc"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Spotify"
                 className="text-slate-300 transition hover:text-green-500"
               >
                 <FaSpotify size={18} />
               </a>
 
+              {/* Instagram */}
               <a
-                href="#"
+                href="https://www.instagram.com/word.n.voice"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Instagram"
                 className="text-slate-300 transition hover:text-pink-500"
               >
                 <FaInstagram size={18} />
               </a>
 
-              <button className="btn-primary">
+              {/* Join Us */}
+              <Link
+                href="/contact"
+                className="btn-primary"
+              >
                 Join us
-              </button>
+              </Link>
             </div>
 
             {/* Mobile Button */}
@@ -136,37 +147,67 @@ export default function Navbar() {
             <div className="glass rounded-3xl p-8">
               <nav className="flex flex-col gap-6">
                 {navigation.map((item) => (
-                  <a
+                  <Link
                     key={item.id}
                     href={item.href}
                     onClick={() => setMobileMenuOpen(false)}
                     className="text-lg text-slate-200 transition hover:text-cyan-400"
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 ))}
               </nav>
 
               <div className="mt-8 flex items-center gap-6">
-                <FaYoutube
-                  className="text-slate-300 hover:text-red-500 transition"
-                  size={22}
-                />
+                {/* YouTube */}
+                <a
+                  href="https://www.youtube.com/@WordnVoice"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="YouTube"
+                >
+                  <FaYoutube
+                    className="text-slate-300 hover:text-red-500 transition"
+                    size={22}
+                  />
+                </a>
 
-                <FaSpotify
-                  className="text-slate-300 hover:text-green-500 transition"
-                  size={22}
-                />
+                {/* Spotify */}
+                <a
+                  href="https://open.spotify.com/artist/0INYdICAWs39j0QzZaC72F?si=evHQkalGSDyRd9UsIYjd_A&nd=1&dlsi=b61be1b47d8f4bbc"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Spotify"
+                >
+                  <FaSpotify
+                    className="text-slate-300 hover:text-green-500 transition"
+                    size={22}
+                  />
+                </a>
 
-                <FaInstagram
-                  className="text-slate-300 hover:text-pink-500 transition"
-                  size={22}
-                />
+                {/* Instagram */}
+                <a
+                  href="https://www.instagram.com/word.n.voice"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                >
+                  <FaInstagram
+                    className="text-slate-300 hover:text-pink-500 transition"
+                    size={22}
+                  />
+                </a>
               </div>
 
-              <button className="btn-primary mt-8 w-full">
-                Support
-              </button>
+              {/* Mobile Join Us */}
+
+              <Link
+                href="/contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="btn-primary mt-8 block w-full text-center"
+              >
+                Join us
+              </Link>
             </div>
           </motion.div>
         )}

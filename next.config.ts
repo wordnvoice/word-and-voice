@@ -7,6 +7,10 @@ const nextConfig: NextConfig = {
 
   compress: true,
 
+  // Allow the local network IP to load Next.js development resources
+  // when testing the website from a mobile device.
+  allowedDevOrigins: ["192.168.1.5"],
+
   images: {
     formats: ["image/avif", "image/webp"],
 

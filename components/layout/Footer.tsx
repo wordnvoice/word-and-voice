@@ -137,25 +137,25 @@ export default function Footer() {
 
               <div className="space-y-4">
 
-                <Link href="#music" className="block hover:text-cyan-400">
+                <Link href="/music" className="block hover:text-cyan-400">
 
                   Latest Releases
 
                 </Link>
 
-                <Link href="#music" className="block hover:text-cyan-400">
+                <Link href="/music" className="block hover:text-cyan-400">
 
                   Worship Songs
 
                 </Link>
 
-                <Link href="#music" className="block hover:text-cyan-400">
+                <Link href="/music" className="block hover:text-cyan-400">
 
                   Albums
 
                 </Link>
 
-                <Link href="#music" className="block hover:text-cyan-400">
+                <Link href="/downloads" className="block hover:text-cyan-400">
 
                   Lyrics
 
@@ -177,25 +177,25 @@ export default function Footer() {
 
               <div className="space-y-4">
 
-                <Link href="#books" className="block hover:text-cyan-400">
+                <Link href="/books" className="block hover:text-cyan-400">
 
                   Devotionals
 
                 </Link>
 
-                <Link href="#books" className="block hover:text-cyan-400">
+                <Link href="/books" className="block hover:text-cyan-400">
 
                   Bible Studies
 
                 </Link>
 
-                <Link href="#downloads" className="block hover:text-cyan-400">
+                <Link href="/downloads" className="block hover:text-cyan-400">
 
                   Free Downloads
 
                 </Link>
 
-                <Link href="#books" className="block hover:text-cyan-400">
+                <Link href="/books" className="block hover:text-cyan-400">
 
                   Reading Plans
 
@@ -217,19 +217,19 @@ export default function Footer() {
 
               <div className="space-y-4">
 
-                <Link href="#projects" className="block hover:text-cyan-400">
+                <Link href="/projects" className="block hover:text-cyan-400">
 
                   Projects
 
                 </Link>
 
-                <Link href="#about" className="block hover:text-cyan-400">
+                <Link href="/about" className="block hover:text-cyan-400">
 
                   Our Vision
 
                 </Link>
 
-                <Link href="#downloads" className="block hover:text-cyan-400">
+                <Link href="/downloads" className="block hover:text-cyan-400">
 
                   Downloads
 
@@ -283,7 +283,7 @@ export default function Footer() {
             <p className="mt-5 max-w-md leading-8 text-slate-400">
 
               Receive worship song releases,
-              devotionals, ministry updates and
+              devotionals, Word & Voice updates and
               encouraging messages directly on
               WhatsApp.
 
@@ -325,7 +325,7 @@ export default function Footer() {
             <p className="mt-5 max-w-md leading-8 text-slate-400">
 
               Whether it's a prayer request,
-              collaboration, ministry enquiry or
+              collaboration, general enquiry or
               simply saying hello, we'd love to
               hear from you.
 
