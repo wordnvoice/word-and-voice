@@ -235,7 +235,7 @@ export default function Hero() {
           >
 
             <Link
-              href="#music"
+              href="/music"
               className="btn-primary"
             >
 
@@ -246,7 +246,7 @@ export default function Hero() {
             </Link>
 
             <Link
-              href="#projects"
+              href="/projects"
               className="btn-secondary"
             >
 
