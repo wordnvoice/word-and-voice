@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import StructuredData from "@/components/seo/StructuredData";
 import "./globals.css";
 
 const inter = Inter({
@@ -73,8 +74,8 @@ export const metadata: Metadata = {
       {
         url: "/logos/logo.png",
         alt: "Word & Voice",
-        },
-        ],
+      },
+    ],
   },
 
   twitter: {
@@ -108,6 +109,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${playfair.variable}`}>
+        <StructuredData />
         {children}
       </body>
 
